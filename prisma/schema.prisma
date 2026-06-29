@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model ServiceTicket {
+
+  id String @id @default(cuid())
+
+  customerRequest String
+
+  category String
+
+  priority String
+
+  technician String
+
+  estimatedDuration String
+
+  summary String
+
+  recommendedParts String[]
+
+  createdAt DateTime @default(now())
+
+}
